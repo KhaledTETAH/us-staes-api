@@ -1,5 +1,6 @@
 package com.info.usstates.dao;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,4 +12,6 @@ public interface StateRepository extends JpaRepository<State, Integer>{
     
     List<State> findAllByName(String name);
     List<State> findAllByCode(String code);
+    List<State> findAllByAdmissionDateAfter(Date date);
+    List<State> findAllByAdmissionDateBefore(Date date);
 }

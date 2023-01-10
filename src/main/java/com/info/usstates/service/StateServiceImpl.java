@@ -1,5 +1,8 @@
 package com.info.usstates.service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +40,33 @@ public class StateServiceImpl implements StateService {
     public List<State> getStateByCode(String code) {
         
         return stateRepository.findAllByCode(code);
+    }
+
+    @Override
+    public List<State> getStatesAfterAdmissionDate(String date) {
+        
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            
+        } catch (ParseException e) {
+            
+            e.printStackTrace();
+        }
+        return stateRepository.findAllByAdmissionDateAfter(date1);
+    }
+
+    @Override
+    public List<State> getStatesBeforeAdmissionDate(String date) {
+        Date date1 = null;
+        try {
+            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
+            
+        } catch (ParseException e) {
+            
+            e.printStackTrace();
+        }
+        return stateRepository.findAllByAdmissionDateBefore(date1);
     }
     
 }
