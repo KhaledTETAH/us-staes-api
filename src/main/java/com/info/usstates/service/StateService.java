@@ -13,4 +13,5 @@ public interface StateService {
     List<State> getStateByCode(String code);
     List<State> getStatesAfterAdmissionDate(String date);
     List<State> getStatesBeforeAdmissionDate(String date);
+    List<State> getStatesByOrderByAdmissionDateAsc();
 }

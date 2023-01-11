@@ -45,19 +45,23 @@ public class StateServiceImpl implements StateService {
     @Override
     public List<State> getStatesAfterAdmissionDate(String date) {
         
-        Date date1 = null;
-        try {
-            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
-            
-        } catch (ParseException e) {
-            
-            e.printStackTrace();
-        }
-        return stateRepository.findAllByAdmissionDateAfter(date1);
+        return stateRepository.findAllByAdmissionDateAfter(stringToDate(date));
     }
 
     @Override
     public List<State> getStatesBeforeAdmissionDate(String date) {
+        
+        return stateRepository.findAllByAdmissionDateBefore(stringToDate(date));
+    }
+
+    @Override
+    public List<State> getStatesByOrderByAdmissionDateAsc() {
+        
+        return stateRepository.findAllByOrderByAdmissionDateAsc();
+    }
+
+    /* utility function to convert a string in 'dd-MM-yyyy' to date type */
+    Date stringToDate(String date){
         Date date1 = null;
         try {
             date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
@@ -66,7 +70,8 @@ public class StateServiceImpl implements StateService {
             
             e.printStackTrace();
         }
-        return stateRepository.findAllByAdmissionDateBefore(date1);
+
+        return date1;
     }
     
 }

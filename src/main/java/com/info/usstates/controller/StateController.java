@@ -51,4 +51,8 @@ public class StateController {
         return stateService.getStatesBeforeAdmissionDate(dateBefore);
     }
     
+    @GetMapping(value = "/admission-date-asc")
+    public List<State> getStatesByOrderByAdmissionDateAsc(){
+        return stateService.getStatesByOrderByAdmissionDateAsc();
+    }
 }
