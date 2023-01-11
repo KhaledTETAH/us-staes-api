@@ -55,4 +55,9 @@ public class StateController {
     public List<State> getStatesByOrderByAdmissionDateAsc(){
         return stateService.getStatesByOrderByAdmissionDateAsc();
     }
+
+    @GetMapping(value = "/admission-date-desc")
+    public List<State> getStatesByOrderByAdmissionDateDesc(){
+        return stateService.getStatesByOrderByAdmissionDateDesc();
+    }
 }

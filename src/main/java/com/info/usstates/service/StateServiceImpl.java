@@ -60,6 +60,12 @@ public class StateServiceImpl implements StateService {
         return stateRepository.findAllByOrderByAdmissionDateAsc();
     }
 
+    @Override
+    public List<State> getStatesByOrderByAdmissionDateDesc() {
+        
+        return stateRepository.findAllByOrderByAdmissionDateDesc();
+    }
+
     /* utility function to convert a string in 'dd-MM-yyyy' to date type */
     Date stringToDate(String date){
         Date date1 = null;
