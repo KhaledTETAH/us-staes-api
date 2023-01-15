@@ -16,4 +16,8 @@ public interface StateRepository extends JpaRepository<State, Integer>{
     List<State> findAllByAdmissionDateBefore(Date date);
     List<State> findAllByOrderByAdmissionDateAsc();
     List<State> findAllByOrderByAdmissionDateDesc();
+    List<State> findAllByPopulationGreaterThanEqual(double p);
+    List<State> findAllByPopulationLessThanEqual(double p);
+    List<State> findAllByOrderByPopulationAsc();
+    List<State> findAllByOrderByPopulationDesc();
 }

@@ -15,4 +15,8 @@ public interface StateService {
     List<State> getStatesBeforeAdmissionDate(String date);
     List<State> getStatesByOrderByAdmissionDateAsc();
     List<State> getStatesByOrderByAdmissionDateDesc();
+    List<State> getStatesByPopulationGreaterThanEqual(double p);
+    List<State> getStatesByPopulationLessThanEqual(double p);
+    List<State> getStatesByPopulationAsc();
+    List<State> getStatesByPopulationDesc();
 }

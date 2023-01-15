@@ -1,8 +1,5 @@
 package com.info.usstates.service;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.info.usstates.dao.StateRepository;
 import com.info.usstates.entity.State;
+import com.info.usstates.utility.StateUtility;
 
 @Service
 public class StateServiceImpl implements StateService {
@@ -45,13 +43,13 @@ public class StateServiceImpl implements StateService {
     @Override
     public List<State> getStatesAfterAdmissionDate(String date) {
         
-        return stateRepository.findAllByAdmissionDateAfter(stringToDate(date));
+        return stateRepository.findAllByAdmissionDateAfter(StateUtility.stringToDate(date));
     }
 
     @Override
     public List<State> getStatesBeforeAdmissionDate(String date) {
         
-        return stateRepository.findAllByAdmissionDateBefore(stringToDate(date));
+        return stateRepository.findAllByAdmissionDateBefore(StateUtility.stringToDate(date));
     }
 
     @Override
@@ -66,18 +64,29 @@ public class StateServiceImpl implements StateService {
         return stateRepository.findAllByOrderByAdmissionDateDesc();
     }
 
-    /* utility function to convert a string in 'dd-MM-yyyy' to date type */
-    Date stringToDate(String date){
-        Date date1 = null;
-        try {
-            date1 = new SimpleDateFormat("dd-MM-yyyy").parse(date);
-            
-        } catch (ParseException e) {
-            
-            e.printStackTrace();
-        }
 
-        return date1;
+    @Override
+    public List<State> getStatesByPopulationGreaterThanEqual(double p) {
+        
+        return stateRepository.findAllByPopulationGreaterThanEqual(p);
+    }
+
+    @Override
+    public List<State> getStatesByPopulationLessThanEqual(double p) {
+        
+        return stateRepository.findAllByPopulationLessThanEqual(p);
+    }
+
+    @Override
+    public List<State> getStatesByPopulationAsc() {
+        
+        return stateRepository.findAllByOrderByPopulationAsc();
+    }
+
+    @Override
+    public List<State> getStatesByPopulationDesc() {
+        
+        return stateRepository.findAllByOrderByPopulationDesc();
     }
     
 }

@@ -26,17 +26,17 @@ public class StateController {
         return stateService.getAllStates();
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping(value = "/id/{id}")
     public State getStateById(@PathVariable(value = "id") int id){
         return stateService.getStateById(id).get();
     }
 
-    @GetMapping("/name/{name}")
+    @GetMapping(value = "/name/{name}")
     public List<State> getStateByName(@PathVariable(value = "name") String name){
         return stateService.getStateByName(name);
     }
 
-    @GetMapping("/code/{code}")
+    @GetMapping(value = "/code/{code}")
     public List<State> getStateByCode(@PathVariable(value = "code") String code){
         return stateService.getStateByCode(code);
     }
@@ -59,5 +59,25 @@ public class StateController {
     @GetMapping(value = "/admission-date-desc")
     public List<State> getStatesByOrderByAdmissionDateDesc(){
         return stateService.getStatesByOrderByAdmissionDateDesc();
+    }
+
+    @GetMapping(value = "/population-greater-than/{p}")
+    public List<State> getStatesByPopulationGreaterThanEqual(@PathVariable(value = "p") double p){
+        return stateService.getStatesByPopulationGreaterThanEqual(p);
+    }
+
+    @GetMapping(value = "/population-less-than/{p}")
+    public List<State> getStatesByPopulationLessThanEqual(@PathVariable(value = "p") double p){
+        return stateService.getStatesByPopulationLessThanEqual(p);
+    }
+
+    @GetMapping(value = "/population-asc")
+    public List<State> getStatesByPopulationAsc(){
+        return stateService.getStatesByPopulationAsc();
+    }
+
+    @GetMapping(value = "/population-desc")
+    public List<State> getStatesByPopulationDesc(){
+        return stateService.getStatesByPopulationDesc();
     }
 }
