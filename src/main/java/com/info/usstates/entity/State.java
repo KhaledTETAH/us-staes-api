@@ -26,7 +26,7 @@ public class State {
     @Column(name = "code")
     private String code;
 
-    @Column(name = "nickname")
+    @Column(name = "nickname") 
     private String nickname;
 
     @Column(name = "admission_date")

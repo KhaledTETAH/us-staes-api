@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.info.usstates.entity.State;
-import com.info.usstates.service.StateService;
 import com.info.usstates.service.StateServiceImpl;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -79,5 +77,45 @@ public class StateController {
     @GetMapping(value = "/population-desc")
     public List<State> getStatesByPopulationDesc(){
         return stateService.getStatesByPopulationDesc();
+    }
+
+    @GetMapping(value = "/area-km-greater-than/{area}")
+    public List<State> getStatesByAreaKmGreaterThanEqual(@PathVariable(value = "area") double area){
+        return stateService.getStatesByAreaKmGreaterThanEqual(area);
+    }
+
+    @GetMapping(value = "/area-km-less-than/{area}")
+    public List<State> getStatesByAreaKmLessThanEqual(@PathVariable(value = "area") double area){
+        return stateService.getStatesByAreaKmLessThanEqual(area);
+    }
+
+    @GetMapping(value = "/area-km-asc")
+    public List<State> getStatesByAreaKmAsc(){
+        return stateService.getStateByAreaKmAsc();
+    }
+
+    @GetMapping(value = "/area-km-desc")
+    public List<State> getStatesByAreaKmDesc(){
+        return stateService.getStateByAreaKmDesc();
+    }
+
+    @GetMapping(value = "/area-mile-greater-than/{area}")
+    public List<State> getStatesByAreaMileGreaterThanEqual(@PathVariable(value = "area") double area){
+        return stateService.getStatesByAreaMileGreaterThanEqual(area);
+    }
+
+    @GetMapping(value = "/area-mile-less-than/{area}")
+    public List<State> getStatesByAreaMileLessThanEqual(@PathVariable(value = "area") double area){
+        return stateService.getStatesByAreaMileLessThanEqual(area);
+    }
+
+    @GetMapping(value = "/area-mile-asc")
+    public List<State> getStatesByAreaMileAsc(){
+        return stateService.getStateByAreaMileAsc();
+    }
+
+    @GetMapping(value = "/area-mile-desc")
+    public List<State> getStatesByAreaMileDesc(){
+        return stateService.getStateByAreaMileDesc();
     }
 }

@@ -88,5 +88,53 @@ public class StateServiceImpl implements StateService {
         
         return stateRepository.findAllByOrderByPopulationDesc();
     }
+
+    @Override
+    public List<State> getStatesByAreaKmGreaterThanEqual(double area) {
+        
+        return stateRepository.findAllByAreaKmGreaterThanEqual(area);
+    }
+
+    @Override
+    public List<State> getStatesByAreaKmLessThanEqual(double area) {
+        
+        return stateRepository.findAllByAreaKmLessThanEqual(area);
+    }
+
+    @Override
+    public List<State> getStateByAreaKmAsc() {
+        
+        return stateRepository.findAllByOrderByAreaKmAsc();
+    }
+
+    @Override
+    public List<State> getStateByAreaKmDesc() {
+        
+        return stateRepository.findAllByOrderByAreaKmDesc();
+    }
+
+    @Override
+    public List<State> getStatesByAreaMileGreaterThanEqual(double area) {
+        
+        return stateRepository.findAllByAreaMileGreaterThanEqual(area);
+    }
+
+    @Override
+    public List<State> getStatesByAreaMileLessThanEqual(double area) {
+        
+        return stateRepository.findAllByAreaMileLessThanEqual(area);
+    }
+
+    @Override
+    public List<State> getStateByAreaMileAsc() {
+        
+        return stateRepository.findAllByOrderByAreaMileAsc();
+    }
+
+    @Override
+    public List<State> getStateByAreaMileDesc() {
+        
+        return stateRepository.findAllByOrderByAreaMileDesc();
+    }
     
 }
