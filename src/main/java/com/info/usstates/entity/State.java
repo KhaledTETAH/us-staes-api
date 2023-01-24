@@ -1,10 +1,14 @@
 package com.info.usstates.entity;
 
 import java.util.Date;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,8 +20,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity(name = "state")
 public class State {
+
+    
+   
+
     @Id
     @Column(name = "admission_number")
+    @JsonIgnore
     private int admissionNumber;
 
     @Column(name = "name")
